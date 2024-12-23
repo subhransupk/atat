@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { subtitle } from "@/components/primitives";
 
 export const metadata: Metadata = {
   title: "Documentation - Adidev Tours And Travels",

@@ -77,7 +77,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Contact us for authorized medical transfers to SCB Medical College. We're available 24/7 for emergency transfers.
+                We&apos;re here to assist you with your medical transfer needs.
               </motion.p>
             </div>
           </div>
@@ -231,11 +231,9 @@ export default function Contact() {
               className="h-[300px] sm:h-[400px] lg:h-full rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.662728327723!2d85.81968731493442!3d20.350829986367757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9b4d66d96d82c6c8!2sKanan%20Vihar%20Phase%201%2C%20Chandrasekharpur%2C%20Bhubaneswar%2C%20Odisha%20751024!5e0!3m2!1sen!2sin!4v1624007989123!5m2!1sen!2sin"
-                className="w-full h-[450px] rounded-lg"
-                title="Adidev Tours And Travels Location"
-                loading="lazy"
-                allowFullScreen
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.0750485651013!2d85.89238007499707!3d20.3115404156991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1904bb04fec089%3A0x22a92a0e05b3e99f!2sSCB%20Medical%20College%20and%20Hospital!5e0!3m2!1sen!2sin!4v1708612391121!5m2!1sen!2sin"
+                className="w-full h-[450px] rounded-xl"
+                title="SCB Medical College and Hospital Location"
               ></iframe>
             </motion.div>
           </div>

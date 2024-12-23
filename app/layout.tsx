@@ -15,24 +15,23 @@ export const metadata: Metadata = {
 	},
 	description: siteConfig.description,
 	keywords: [
-		"ambulance service",
-		"medical transfer",
+		"Ambulance Service",
+		"Medical Transport",
 		"SCB Medical College",
-		"Cuttack",
-		"Odisha",
-		"patient transport",
-		"emergency medical service",
+		"Emergency Services",
+		"Patient Transfer",
+		"Medical Care",
+		"Healthcare Transport",
+		"Cuttack Ambulance",
 		"healthcare transport"
 	],
+};
+
+export const viewport = {
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
-	icons: {
-		icon: "/favicon.ico",
-		shortcut: "/favicon-16x16.png",
-		apple: "/apple-touch-icon.png",
-	},
+		{ media: "(prefers-color-scheme: dark)", color: "black" }
+	]
 };
 
 export default function RootLayout({

@@ -241,7 +241,7 @@ export default function FAQs() {
               Still Have Questions?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Can't find the answer you're looking for? Please contact us using the information below.
+              Can&apos;t find the answer you&apos;re looking for? Please contact us using the information below.
             </p>
           </motion.div>
 
