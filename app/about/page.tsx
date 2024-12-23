@@ -1,255 +1,220 @@
 "use client";
 
+import { title } from "@/components/primitives";
+import { Link } from "@nextui-org/link";
+import { Card, CardBody } from "@nextui-org/card";
+import { Target, Eye, Heart, Shield, Ambulance, Users, Award, Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { ChevronRight, Heart, Shield, Clock, Award, Users, Truck } from "lucide-react";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const scaleIn = {
+  initial: { scale: 0.9, opacity: 0 },
+  animate: { scale: 1, opacity: 1 },
+  transition: { duration: 0.5 }
+};
+
+const coreValues = [
+  { icon: Heart, title: "Compassion", desc: "Treating every patient with care, empathy, and understanding" },
+  { icon: Shield, title: "Safety", desc: "Prioritizing patient and staff safety in every transport" },
+  { icon: Award, title: "Excellence", desc: "Maintaining the highest standards in medical transport services" },
+  { icon: Clock, title: "Reliability", desc: "Available 24/7 with prompt and dependable service" }
+];
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen w-full">
+    <div className="w-full">
       {/* Hero Section */}
-      <div className="relative overflow-hidden w-full bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/5">
-        {/* Content */}
-        <div className="relative w-full py-16 sm:py-20">
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Breadcrumb */}
-            <nav className="flex items-center space-x-2 text-sm mb-8">
-              <Link 
-                href="/"
-                className="text-gray-600 hover:text-primary transition-colors"
-              >
-                Home
-              </Link>
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-              <span className="text-primary font-medium">About Us</span>
-            </nav>
-
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="space-y-6"
-              >
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary">
-                  Trusted Medical <span className="text-primary">Transport</span> Partner
-                </h1>
-                <p className="text-lg text-gray-600">
-                  Providing professional and reliable ambulance services in partnership with SCB Medical College, ensuring safe and comfortable patient transfers.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Award className="w-5 h-5 text-primary" />
-                    </div>
-                    <span className="text-gray-700 font-medium">Certified Service</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-secondary" />
-                    </div>
-                    <span className="text-gray-700 font-medium">24/7 Available</span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Right Image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="relative"
-              >
-                <div className="relative h-[400px] sm:h-[500px]">
-                  <Image
-                    src="/images/ambulance.png"
-                    alt="Adidev Ambulance Service"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                {/* Decorative Elements */}
-                <div className="absolute -z-10 top-1/2 left-1/2 w-[300px] h-[300px] -translate-x-1/2 -translate-y-1/2">
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse" />
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="w-full py-16 bg-gradient-to-b from-white to-gray-50"
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="relative w-full bg-gradient-to-br from-white to-default-100 py-16 md:py-20"
       >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { icon: Users, label: "Patients Served", value: "1000+", color: "primary" },
-              { icon: Truck, label: "Ambulances", value: "50+", color: "secondary" },
-              { icon: Award, label: "Years Experience", value: "15+", color: "primary" },
-              { icon: Heart, label: "Success Rate", value: "99%", color: "secondary" }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="space-y-3"
-              >
-                <div className={`w-12 h-12 mx-auto rounded-xl bg-${stat.color}/10 flex items-center justify-center`}>
-                  <stat.icon className={`w-6 h-6 text-${stat.color}`} />
-                </div>
-                <div className="text-3xl font-bold text-secondary">{stat.value}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Mission & Values */}
-      <section className="w-full py-16 sm:py-20">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+        <div className="max-w-[1280px] mx-auto px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center gap-3 text-sm mb-4"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4">
-              Our Mission & Values
-            </h2>
-            <p className="text-gray-600">
-              We are committed to providing safe and professional medical transfer services with the highest standards of care and compassion.
+            <Link href="/" className="text-default-500 hover:text-primary">
+              Home
+            </Link>
+            <span className="text-default-500">/</span>
+            <span className="text-primary">About</span>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="max-w-3xl"
+          >
+            <h1 className={title({ size: "lg" })}>About Us</h1>
+            <p className="text-default-500 text-lg mt-4">
+              Learn more about our authorized ambulance service for SCB Medical College, Cuttack. We are committed to providing safe and reliable medical transport services.
             </p>
           </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Our Mission",
-                description: "To provide reliable and professional medical transfer services to patients requiring specialized care at SCB Medical College.",
-                icon: Heart,
-                color: "primary"
-              },
-              {
-                title: "Our Vision",
-                description: "To be the most trusted medical transfer service provider, known for excellence and patient-centric approach.",
-                icon: Shield,
-                color: "secondary"
-              },
-              {
-                title: "Our Values",
-                description: "Commitment to safety, professionalism, and compassionate care in every patient transfer we undertake.",
-                icon: Award,
-                color: "primary"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative group"
-              >
-                <div className="absolute inset-0.5 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300" />
-                <div className="relative bg-white p-8 rounded-2xl border border-gray-100 hover:border-primary transition-colors duration-300">
-                  <div className={`w-14 h-14 rounded-xl bg-${item.color}/10 flex items-center justify-center mb-6`}>
-                    <item.icon className={`w-7 h-7 text-${item.color}`} />
-                  </div>
-                  <h3 className="text-xl font-bold text-secondary mb-4">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Why Choose Us */}
-      <section className="w-full py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+      {/* Main Content */}
+      <section className="w-full">
+        <div className="max-w-[1280px] mx-auto px-6 py-12">
+          {/* Mission & Vision Section */}
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4">
-              Why Choose Us
-            </h2>
-            <p className="text-gray-600">
-              Experience the difference with our professional medical transfer services
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Authorized Service",
-                description: "Official partnership with SCB Medical College for patient transfers",
-                icon: Shield
-              },
-              {
-                title: "Expert Medical Staff",
-                description: "Highly trained professionals with extensive experience",
-                icon: Users
-              },
-              {
-                title: "Modern Equipment",
-                description: "State-of-the-art medical equipment in all ambulances",
-                icon: Truck
-              },
-              {
-                title: "24/7 Availability",
-                description: "Round-the-clock service for emergency transfers",
-                icon: Clock
-              },
-              {
-                title: "Safe Transfers",
-                description: "Prioritizing patient safety and comfort",
-                icon: Heart
-              },
-              {
-                title: "Professional Service",
-                description: "Committed to excellence in patient care",
-                icon: Award
-              }
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="bg-white p-6 rounded-xl border border-gray-100 hover:border-primary transition-colors duration-300">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-6 h-6 text-primary" />
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-primary/5 border-none hover:scale-105 transition-transform duration-300">
+                <CardBody className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <motion.div 
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                      className="p-3 bg-primary/10 rounded-xl"
+                    >
+                      <Target className="w-8 h-8 text-primary" />
+                    </motion.div>
+                    <h2 className="text-2xl font-bold">Our Mission</h2>
                   </div>
-                  <h3 className="text-lg font-semibold text-secondary mb-2 group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    {feature.description}
+                  <p className="text-default-500 text-lg leading-relaxed">
+                    To provide exceptional medical transport services with utmost care and professionalism, ensuring safe and timely transfers for patients to SCB Medical College through authorized channels.
                   </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-primary/5 border-none hover:scale-105 transition-transform duration-300">
+                <CardBody className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <motion.div 
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                      className="p-3 bg-primary/10 rounded-xl"
+                    >
+                      <Eye className="w-8 h-8 text-primary" />
+                    </motion.div>
+                    <h2 className="text-2xl font-bold">Our Vision</h2>
+                  </div>
+                  <p className="text-default-500 text-lg leading-relaxed">
+                    To be the most trusted and reliable medical transport service provider, setting the highest standards in patient care and emergency medical transportation in Odisha.
+                  </p>
+                </CardBody>
+              </Card>
+            </motion.div>
+          </motion.div>
+
+          {/* Core Values Section */}
+          <motion.div 
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="mb-16"
+          >
+            <motion.div 
+              variants={fadeInUp}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
+              <p className="text-default-500 text-lg max-w-2xl mx-auto">
+                The principles that guide us in delivering exceptional medical transport services
+              </p>
+            </motion.div>
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {coreValues.map((value) => (
+                <motion.div key={value.title} variants={scaleIn}>
+                  <Card className="bg-primary/5 border-none hover:scale-105 transition-transform duration-300">
+                    <CardBody className="p-6 text-center">
+                      <motion.div 
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                        className="flex justify-center mb-4"
+                      >
+                        <div className="p-3 bg-primary/10 rounded-xl">
+                          <value.icon className="w-6 h-6 text-primary" />
+                        </div>
+                      </motion.div>
+                      <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                      <p className="text-default-500">{value.desc}</p>
+                    </CardBody>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* About Service Section */}
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-primary/5 border-none hover:scale-105 transition-transform duration-300">
+                <CardBody className="flex flex-row items-start gap-4 p-8">
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="p-3 bg-primary/10 rounded-xl"
+                  >
+                    <Ambulance className="w-6 h-6 text-primary" />
+                  </motion.div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Authorized Service Provider</h3>
+                    <p className="text-default-500">
+                      We are an authorized ambulance service provider for SCB Medical College, Cuttack. Our service is exclusively for patient transfers from government medical facilities to SCB Medical College through proper referral channels.
+                    </p>
+                  </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+
+            <motion.div variants={fadeInUp}>
+              <Card className="bg-primary/5 border-none hover:scale-105 transition-transform duration-300">
+                <CardBody className="flex flex-row items-start gap-4 p-8">
+                  <motion.div 
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                    className="p-3 bg-primary/10 rounded-xl"
+                  >
+                    <Users className="w-6 h-6 text-primary" />
+                  </motion.div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">Professional Team</h3>
+                    <p className="text-default-500">
+                      We maintain a fleet of well-equipped ambulances and trained medical staff to ensure safe and comfortable patient transport.
+                    </p>
+                  </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>

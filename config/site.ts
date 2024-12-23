@@ -1,69 +1,56 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "Adidev Tours And Travels",
+  description: "Authorized ambulance service provider for SCB Medical College, Cuttack. We provide specialized ambulance services for patient transfers from government medical facilities.",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "About",
+      href: "/about",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Services",
+      href: "/services",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "FAQs",
+      href: "/faqs",
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+    },
+  ],
+  navMenuItems: [
+    {
+      label: "Home",
+      href: "/",
     },
     {
       label: "About",
       href: "/about",
     },
-  ],
-  navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Services",
+      href: "/services",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "FAQs",
+      href: "/faqs",
     },
     {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Contact",
+      href: "/contact",
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    facebook: "#",
+    instagram: "#",
+    phone: "9437077773",
+    email: "adidevtourstravels@gmail.com",
   },
 };

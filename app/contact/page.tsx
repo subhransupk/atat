@@ -7,38 +7,32 @@ import { Textarea } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState, FormEvent } from "react";
+import { toast } from "react-hot-toast";
+
+const initialFormData = {
+  fullName: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: ""
+};
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: ""
-  });
+  const [formData, setFormData] = useState(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      // Here you would typically send the data to your backend
-      // For now, we'll just log it and show a success message
-      console.log("Form submitted:", formData);
-      alert("Thank you for your message. We will get back to you soon!");
-      
-      // Reset form
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: ""
-      });
+      // Here you would typically send the form data to your backend
+      // For now, we'll simulate a successful submission
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setFormData(initialFormData);
+      toast.success("Message sent successfully!");
     } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error sending your message. Please try again.");
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -237,13 +231,11 @@ export default function Contact() {
               className="h-[300px] sm:h-[400px] lg:h-full rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.2448941889654!2d85.81974731493582!3d20.350429986367497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9e9e17f0f84c8e39!2sKanan%20Vihar%20Phase%201%2C%20Chandrasekharpur%2C%20Bhubaneswar%2C%20Odisha%20751016!5e0!3m2!1sen!2sin!4v1645510615000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.662728327723!2d85.81968731493442!3d20.350829986367757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1908e064769e73%3A0x9b4d66d96d82c6c8!2sKanan%20Vihar%20Phase%201%2C%20Chandrasekharpur%2C%20Bhubaneswar%2C%20Odisha%20751024!5e0!3m2!1sen!2sin!4v1624007989123!5m2!1sen!2sin"
+                className="w-full h-[450px] rounded-lg"
+                title="Adidev Tours And Travels Location"
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
               ></iframe>
             </motion.div>
           </div>

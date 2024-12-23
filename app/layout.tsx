@@ -3,16 +3,17 @@ import { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
-import { Navbar } from "@/components/navbar";
+import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import clsx from "clsx";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
 	title: {
-		default: "Adidev Tours And Travels",
+		default: siteConfig.name,
 		template: `%s - ${siteConfig.name}`,
 	},
-	description: "Professional ambulance service provider in partnership with SCB Medical College, Cuttack. Specialized in patient transfers from government medical facilities.",
+	description: siteConfig.description,
 	keywords: [
 		"ambulance service",
 		"medical transfer",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 	],
 	themeColor: [
 		{ media: "(prefers-color-scheme: light)", color: "white" },
+		{ media: "(prefers-color-scheme: dark)", color: "black" },
 	],
 	icons: {
 		icon: "/favicon.ico",
@@ -56,6 +58,7 @@ export default function RootLayout({
 						<Footer />
 					</div>
 				</Providers>
+				<Toaster position="top-center" />
 			</body>
 		</html>
 	);

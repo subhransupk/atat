@@ -1,4 +1,4 @@
-import { title } from "@/components/primitives";
+import { Card, CardBody, CardHeader } from "@nextui-org/card";
 
 export default function PricingPage() {
   return (
